@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import useFundraiser from "../hooks/use-fundraiser";
+import useFundraiser from "../hooks/use-fundraisers";
 
 function FundraiserPage() {
     const { id } = useParams();
