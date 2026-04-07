@@ -1,19 +1,14 @@
-const handleSubmit = (event) => {
-  event.preventDefault();
-  setError("");
+import CreateFundraiserForm from "../components/CreateFundraiserForm";
 
-  postFundraiser(
-    fundraiserData.title,
-    fundraiserData.description,
-    fundraiserData.target,
-    fundraiserData.image,
-    fundraiserData.is_open
-  )
-    .then((response) => {
-      navigate(`/fundraiser/${response.id}`);
-    })
-    .catch((err) => {
-      setError(err.message);
-      console.log("create fundraiser error:", err.message);
-    });
-};
+function CreateFundraiserPage() {
+  return (
+    <div className="form-container">
+      <div className="glass-card form-card">
+        <h1>Create a Fundraiser</h1>
+        <CreateFundraiserForm />
+      </div>
+    </div>
+  );
+}
+
+export default CreateFundraiserPage;
