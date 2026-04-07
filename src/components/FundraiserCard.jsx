@@ -3,7 +3,7 @@ import "./FundraiserCard.css";
 
 function FundraiserCard(props) {
   const { fundraiserData } = props;
-  const fundraiserLink = `fundraiser/${fundraiserData.id}`;
+  const fundraiserLink = `/fundraiser/${fundraiserData.id}`;
   return (
     <div className="fundraiser-card">
       <Link to={fundraiserLink}>

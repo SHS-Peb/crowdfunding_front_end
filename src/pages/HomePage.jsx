@@ -3,14 +3,28 @@ import FundraiserCard from "../components/FundraiserCard";
 import "./HomePage.css";
 
 function HomePage() {
-    const { fundraisers } = useFundraisers(); 
-    return (
-        <div id="fundraiser-list">
-            {fundraisers.map((fundraiserData, key) => {
-                return <FundraiserCard key={key} fundraiserData={fundraiserData} />;
-            })}
-        </div>
-    );
+  const { fundraisers, isLoading, error } = useFundraisers();
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>{error.message}</p>;
+  }
+
+  return (
+    <div id="fundraiser-list">
+      {fundraisers.map((fundraiserData) => {
+        return (
+          <FundraiserCard
+            key={fundraiserData.id}
+            fundraiserData={fundraiserData}
+          />
+        );
+      })}
+    </div>
+  );
 }
 
 export default HomePage;

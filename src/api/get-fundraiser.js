@@ -1,26 +1,19 @@
-import { useState, useEffect } from "react";
+async function getFundraiser(fundraiserId) {
+  const url = `${import.meta.env.VITE_API_URL}/fundraisers/${fundraiserId}`;
+  const response = await fetch(url, { method: "GET" });
 
-import getFundraiser from "../api/get-fundraiser";
+  if (!response.ok) {
+    const fallbackError = `Error fetching fundraiser with id ${fundraiserId}`;
 
-export default function useFundraiser(fundraiserId) {
-  const [fundraiser, setFundraiser] = useState();
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState();
+    const data = await response.json().catch(() => {
+      throw new Error(fallbackError);
+    });
 
-  useEffect(() => {
-    // Here we pass the fundraiserId to the getFundraiser function.
-    getFundraiser(fundraiserId)
-      .then((fundraiser) => {
-        setFundraiser(fundraiser);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        setError(error);
-        setIsLoading(false);
-      });
+    const errorMessage = data?.detail ?? fallbackError;
+    throw new Error(errorMessage);
+  }
 
-    // This time we pass the fundraiserId to the dependency array so that the hook will re-run if the fundraiserId changes.
-  }, [fundraiserId]);
-
-  return { fundraiser, isLoading, error };
+  return await response.json();
 }
+
+export default getFundraiser;
