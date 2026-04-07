@@ -1,21 +1,19 @@
-import { Navigate } from "react-router-dom";
-import CreateFundraiserForm from "../components/CreateFundraiserForm";
+const handleSubmit = (event) => {
+  event.preventDefault();
+  setError("");
 
-function CreateFundraiserPage() {
-  const token = window.localStorage.getItem("token");
-
-  if (!token) {
-    return <Navigate to="/login" replace />;
-  }
-
-  return (
-    <div className="form-container">
-      <div className="glass-card form-card">
-        <h1>Create a Fundraiser</h1>
-        <CreateFundraiserForm />
-      </div>
-    </div>
-  );
-}
-
-export default CreateFundraiserPage;
+  postFundraiser(
+    fundraiserData.title,
+    fundraiserData.description,
+    fundraiserData.target,
+    fundraiserData.image,
+    fundraiserData.is_open
+  )
+    .then((response) => {
+      navigate(`/fundraiser/${response.id}`);
+    })
+    .catch((err) => {
+      setError(err.message);
+      console.log("create fundraiser error:", err.message);
+    });
+};

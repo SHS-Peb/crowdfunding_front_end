@@ -1,0 +1,47 @@
+.admin-page {
+  padding: 50px 30px;
+}
+
+.admin-page h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.admin-fundraiser-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.admin-fundraiser-card {
+  padding: 20px;
+}
+
+.admin-fundraiser-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.admin-actions button {
+  flex: 1;
+  border: none;
+  border-radius: 18px;
+  padding: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  background: #7b4f8c;
+  color: white;
+}
+
+.admin-actions button:hover {
+  opacity: 0.9;
+}

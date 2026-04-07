@@ -33,6 +33,7 @@ function LoginForm() {
     postLogin(credentials.username, credentials.password)
       .then((response) => {
         window.localStorage.setItem("token", response.token);
+        window.localStorage.setItem("is_staff", String(response.is_staff));
         navigate("/");
       })
       .catch((err) => {

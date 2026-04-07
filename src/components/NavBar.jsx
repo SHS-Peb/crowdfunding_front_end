@@ -5,9 +5,11 @@ function NavBar() {
   const navigate = useNavigate();
 
   const token = window.localStorage.getItem("token");
+  const isStaff = window.localStorage.getItem("is_staff") === "true";
 
   const handleLogout = () => {
     window.localStorage.removeItem("token");
+    window.localStorage.removeItem("is_staff");
     navigate("/");
   };
 
@@ -24,6 +26,7 @@ function NavBar() {
         ) : (
           <>
             <Link to="/create-fundraiser">Create Fundraiser</Link>
+            {isStaff && <Link to="/admin-fundraisers">Admin</Link>}
             <button onClick={handleLogout} className="logout-btn">
               Logout
             </button>

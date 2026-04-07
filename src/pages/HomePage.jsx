@@ -46,7 +46,9 @@ function HomePage() {
           <p>
             Just One Thing! is a crowdfunding space for the one opportunity,
             ticket, course, move, dream, or life change that could make all
-            the difference.
+            the difference. What is the one thing you need to get your life together?
+            A new office chair? A plane ticket to get away? A new Mattress? A gym membership for a year?
+            Each idea will have to be verified manually before being allowed.
           </p>
         </div>
       </section>
