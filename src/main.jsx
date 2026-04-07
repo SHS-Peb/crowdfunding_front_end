@@ -1,3 +1,4 @@
+import "./main.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -5,8 +6,10 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from "./pages/HomePage.jsx";
 import FundraiserPage from "./pages/FundraiserPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
+import SignupPage from "./pages/SignupPage.jsx";
 import CreateFundraiserPage from "./pages/CreateFundraiserPage.jsx";
 import NavBar from "./components/NavBar.jsx";
+
 
 const router = createBrowserRouter([
   {
@@ -15,8 +18,9 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <HomePage /> },
       { path: "/login", element: <LoginPage /> },
-      { path: "/fundraiser/:id", element: <FundraiserPage /> },
+      { path: "/signup", element: <SignupPage /> },
       { path: "/create-fundraiser", element: <CreateFundraiserPage /> },
+      { path: "/fundraiser/:id", element: <FundraiserPage /> },
     ],
   },
 ]);

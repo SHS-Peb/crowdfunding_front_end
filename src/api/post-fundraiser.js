@@ -11,7 +11,7 @@ async function postFundraiser(title, description, target, image, isOpen) {
     body: JSON.stringify({
       title: title,
       description: description,
-      target: target,
+      goal: target,
       image: image,
       is_open: isOpen,
     }),

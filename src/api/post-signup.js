@@ -1,5 +1,5 @@
-async function postLogin(username, password) {
-  const url = `${import.meta.env.VITE_API_URL}/api-token-auth/`;
+async function postSignup(username, email, password) {
+  const url = `${import.meta.env.VITE_API_URL}/users/`;
 
   const response = await fetch(url, {
     method: "POST",
@@ -8,12 +8,13 @@ async function postLogin(username, password) {
     },
     body: JSON.stringify({
       username: username,
+      email: email,
       password: password,
     }),
   });
 
   if (!response.ok) {
-    const fallbackError = "Wrong username or password";
+    const fallbackError = "Could not create account";
 
     const data = await response.json().catch(() => {
       throw new Error(fallbackError);
@@ -21,8 +22,8 @@ async function postLogin(username, password) {
 
     const errorMessage =
       data?.detail ||
-      data?.non_field_errors?.[0] ||
       data?.username?.[0] ||
+      data?.email?.[0] ||
       data?.password?.[0] ||
       fallbackError;
 
@@ -32,4 +33,4 @@ async function postLogin(username, password) {
   return await response.json();
 }
 
-export default postLogin;
+export default postSignup;

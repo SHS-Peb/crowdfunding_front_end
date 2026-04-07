@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import postFundraiser from "../api/post-fundraiser";
+import "./CreateFundraiserForm.css";
 
 function CreateFundraiserForm() {
   const navigate = useNavigate();
