@@ -15,7 +15,7 @@ function HomePage() {
       </section>
 
       <div id="fundraiser-list">
-        {allFundraisers.map((fundraiserData) => (
+        {fundraisers.map((fundraiserData) => (
           <FundraiserCard
             key={fundraiserData.id}
             fundraiserData={fundraiserData}
