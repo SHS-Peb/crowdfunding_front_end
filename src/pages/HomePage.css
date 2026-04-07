@@ -48,9 +48,9 @@
 
 .about-card {
   max-width: 800px;
-  min-height: 350px;
   margin: 0 auto;
   padding: 50px 40px;
+  height: auto;
 }
 
 .about-card p {
