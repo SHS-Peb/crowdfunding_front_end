@@ -1,5 +1,5 @@
 async function getFundraisers() {
-  const url = `${import.meta.env.VITE_API_URL}/fundraisers`;
+  const url = `${import.meta.env.VITE_API_URL}/fundraisers/`;
   const response = await fetch(url, { method: "GET" });
 
   if (!response.ok) {
@@ -13,7 +13,8 @@ async function getFundraisers() {
     throw new Error(errorMessage);
   }
 
-  return await response.json();
+  const data = await response.json();
+  return Array.isArray(data) ? data : data.results ?? [];
 }
 
 export default getFundraisers;
