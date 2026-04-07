@@ -3,6 +3,19 @@ import FundraiserCard from "../components/FundraiserCard";
 import "./HomePage.css";
 
 function HomePage() {
+  const { fundraisers, isLoading, error } = useFundraisers();
+
+  console.log("fundraisers:", fundraisers);
+
+  if (isLoading) return <p>Loading...</p>;
+  if (error) return <p>{error.message}</p>;
+
+  const fundraiserList = Array.isArray(fundraisers)
+    ? fundraisers
+    : Array.isArray(fundraisers?.results)
+    ? fundraisers.results
+    : [];
+
   return (
     <div>
       <section className="hero">
@@ -15,12 +28,16 @@ function HomePage() {
       </section>
 
       <div id="fundraiser-list">
-        {useFundraisers.map((fundraiserData) => (
-          <FundraiserCard
-            key={fundraiserData.id}
-            fundraiserData={fundraiserData}
-          />
-        ))}
+        {fundraiserList.length > 0 ? (
+          fundraiserList.map((fundraiserData) => (
+            <FundraiserCard
+              key={fundraiserData.id}
+              fundraiserData={fundraiserData}
+            />
+          ))
+        ) : (
+          <p>No fundraisers yet.</p>
+        )}
       </div>
 
       <section className="about-section">
