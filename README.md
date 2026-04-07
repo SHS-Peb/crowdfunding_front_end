@@ -1,16 +1,85 @@
-# React + Vite
+# Just One Thing!
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A crowdfunding platform designed to help people achieve **one meaningful goal** that could change their life.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🔗 Live Project
+**Frontend:**  
+https://glittery-mochi-8e44c2.netlify.app  
 
-## React Compiler
+**Backend API:**  
+https://crowdfunding-ijustneedonething-06a0f674c900.herokuapp.com  
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Target Audience
+People who need support for a **single life-changing opportunity**, such as:
+- Travel for education
+- Career opportunities
+- Personal development
+- Relocation or fresh starts
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Features
+
+### User Accounts
+- Sign up
+- Log in
+- Token authentication
+- Staff/admin users
+
+### Fundraisers
+- Create fundraiser (logged-in users only)
+- Includes:
+  - Title
+  - Description
+  - Image
+  - Target amount
+  - Open/closed status
+  - Created date
+- Fundraisers require **admin approval** before appearing
+
+### Pledges
+- Logged-in users can pledge
+- Includes:
+  - Amount
+  - Comment
+  - Anonymous option
+- Linked to both fundraiser and user
+
+### Permissions
+- Only logged-in users can:
+  - Create fundraisers
+- Admin users can:
+  - Approve or reject fundraisers
+
+---
+
+## Tech Stack
+
+**Frontend**
+- React (Vite)
+- React Router
+- CSS
+
+**Backend**
+- Django Rest Framework
+- Token Authentication
+- PostgreSQL (Heroku)
+
+---
+
+## Screenshots
+
+### Homepage
+![Homepage](./src/assets/screenshots/JustOneThing.Home.PNG)
+
+### Create Fundraiser Page
+![Create Fundraiser](./src/assets/screenshots/JustOneThing.CreateFundraiser.PNG)
+
+### Fundraiser with Pledges
+![Fundraiser](./src/assets/screenshots/JustOneThing.FundraiserWPledge.PNG)
+
+
